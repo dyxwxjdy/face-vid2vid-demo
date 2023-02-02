@@ -287,7 +287,7 @@ if __name__ == "__main__":
     generator, kp_detector, he_estimator = load_checkpoints(config_path=opt.config, checkpoint_path=opt.checkpoint, gen=opt.gen, cpu=opt.cpu)
 
     with open(opt.config) as f:
-        config = yaml.load(f)
+        config = yaml.safe_load(f)
     estimate_jacobian = config['model_params']['common_params']['estimate_jacobian']
     print(f'estimate jacobian: {estimate_jacobian}')
 
